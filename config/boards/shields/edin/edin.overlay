@@ -1,6 +1,11 @@
 / {
     chosen {
         zmk,kscan = &kscan0;
+        zephyr,console = &cdc_acm_uart;
+        
+    };
+    cdc_acm_uart: cdc_acm_uart {
+        compatible = "zephyr,cdc-acm-uart";
     };
 
     kscan0: kscan_0 {
