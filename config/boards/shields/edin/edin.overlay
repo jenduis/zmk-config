@@ -1,17 +1,15 @@
+#include <dt-bindings/zmk/matrix_transform.h>
+
 / {
     chosen {
         zmk,kscan = &kscan0;
         zmk,physical-layout = &physical_layout0;
     };
 
-    /* This block defines the 6x4 visual grid for ZMK Studio */
     physical_layout0: physical_layout_0 {
         compatible = "zmk,physical-layout";
         display-name = "Default Layout";
         kscan = &kscan0;
-
-        /* This maps your electrical matrix to 24 visual keys */
-        /* 6 columns (each 100 units wide), 4 rows (each 100 units tall) */
         transform = <&default_transform>;
     };
 
