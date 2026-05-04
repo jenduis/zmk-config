@@ -1,5 +1,6 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <zephyr/dt-bindings/gpio/gpio.h>
+#include <physical_layouts.dtsi>
 
 / {
     chosen {
@@ -7,52 +8,48 @@
         zmk,physical-layout = &physical_layout0;
     };
 
-    /* Define all 24 keys for ZMK Studio */
-    /* Row 0 */
-    key0: key_0 { compatible = "zmk,key-physical-attrs"; display-name = "K00"; width = <100>; height = <100>; x = <0>; y = <0>; };
-    key1: key_1 { compatible = "zmk,key-physical-attrs"; display-name = "K01"; width = <100>; height = <100>; x = <100>; y = <0>; };
-    key2: key_2 { compatible = "zmk,key-physical-attrs"; display-name = "K02"; width = <100>; height = <100>; x = <200>; y = <0>; };
-    key3: key_3 { compatible = "zmk,key-physical-attrs"; display-name = "K03"; width = <100>; height = <100>; x = <300>; y = <0>; };
-    key4: key_4 { compatible = "zmk,key-physical-attrs"; display-name = "K04"; width = <100>; height = <100>; x = <400>; y = <0>; };
-    key5: key_5 { compatible = "zmk,key-physical-attrs"; display-name = "K05"; width = <100>; height = <100>; x = <500>; y = <0>; };
-
-    /* Row 1 */
-    key6: key_6 { compatible = "zmk,key-physical-attrs"; display-name = "K10"; width = <100>; height = <100>; x = <0>; y = <100>; };
-    key7: key_7 { compatible = "zmk,key-physical-attrs"; display-name = "K11"; width = <100>; height = <100>; x = <100>; y = <100>; };
-    key8: key_8 { compatible = "zmk,key-physical-attrs"; display-name = "K12"; width = <100>; height = <100>; x = <200>; y = <100>; };
-    key9: key_9 { compatible = "zmk,key-physical-attrs"; display-name = "K13"; width = <100>; height = <100>; x = <300>; y = <100>; };
-    key10: key_10 { compatible = "zmk,key-physical-attrs"; display-name = "K14"; width = <100>; height = <100>; x = <400>; y = <100>; };
-    key11: key_11 { compatible = "zmk,key-physical-attrs"; display-name = "K15"; width = <100>; height = <100>; x = <500>; y = <100>; };
-
-    /* Row 2 */
-    key12: key_12 { compatible = "zmk,key-physical-attrs"; display-name = "K20"; width = <100>; height = <100>; x = <0>; y = <200>; };
-    key13: key_13 { compatible = "zmk,key-physical-attrs"; display-name = "K21"; width = <100>; height = <100>; x = <100>; y = <200>; };
-    key14: key_14 { compatible = "zmk,key-physical-attrs"; display-name = "K22"; width = <100>; height = <100>; x = <200>; y = <200>; };
-    key15: key_15 { compatible = "zmk,key-physical-attrs"; display-name = "K23"; width = <100>; height = <100>; x = <300>; y = <200>; };
-    key16: key_16 { compatible = "zmk,key-physical-attrs"; display-name = "K24"; width = <100>; height = <100>; x = <400>; y = <200>; };
-    key17: key_17 { compatible = "zmk,key-physical-attrs"; display-name = "K25"; width = <100>; height = <100>; x = <500>; y = <200>; };
-
-    /* Row 3 */
-    key18: key_18 { compatible = "zmk,key-physical-attrs"; display-name = "K30"; width = <100>; height = <100>; x = <0>; y = <300>; };
-    key19: key_19 { compatible = "zmk,key-physical-attrs"; display-name = "K31"; width = <100>; height = <100>; x = <100>; y = <300>; };
-    key20: key_20 { compatible = "zmk,key-physical-attrs"; display-name = "K32"; width = <100>; height = <100>; x = <200>; y = <300>; };
-    key21: key_21 { compatible = "zmk,key-physical-attrs"; display-name = "K33"; width = <100>; height = <100>; x = <300>; y = <300>; };
-    key22: key_22 { compatible = "zmk,key-physical-attrs"; display-name = "K34"; width = <100>; height = <100>; x = <400>; y = <300>; };
-    key23: key_23 { compatible = "zmk,key-physical-attrs"; display-name = "K35"; width = <100>; height = <100>; x = <500>; y = <300>; };
-
-
     physical_layout0: physical_layout_0 {
         compatible = "zmk,physical-layout";
         display-name = "Default Layout";
         kscan = <&kscan0>;
         transform = <&default_transform>;
 
-        /* Reference all the individual keys here */
+        /* 
+         * Format: &key_physical_attrs width height x y rot rot-x rot-y 
+         * 1U = 100
+         */
         keys = <
-            &key0  &key1  &key2  &key3  &key4  &key5
-            &key6  &key7  &key8  &key9  &key10 &key11
-            &key12 &key13 &key14 &key15 &key16 &key17
-            &key18 &key19 &key20 &key21 &key22 &key23
+            /* Row 0 */
+            &key_physical_attrs 100 100 0 0 0 0 0
+            &key_physical_attrs 100 100 100 0 0 0 0
+            &key_physical_attrs 100 100 200 0 0 0 0
+            &key_physical_attrs 100 100 300 0 0 0 0
+            &key_physical_attrs 100 100 400 0 0 0 0
+            &key_physical_attrs 100 100 500 0 0 0 0
+
+            /* Row 1 */
+            &key_physical_attrs 100 100 0 100 0 0 0
+            &key_physical_attrs 100 100 100 100 0 0 0
+            &key_physical_attrs 100 100 200 100 0 0 0
+            &key_physical_attrs 100 100 300 100 0 0 0
+            &key_physical_attrs 100 100 400 100 0 0 0
+            &key_physical_attrs 100 100 500 100 0 0 0
+
+            /* Row 2 */
+            &key_physical_attrs 100 100 0 200 0 0 0
+            &key_physical_attrs 100 100 100 200 0 0 0
+            &key_physical_attrs 100 100 200 200 0 0 0
+            &key_physical_attrs 100 100 300 200 0 0 0
+            &key_physical_attrs 100 100 400 200 0 0 0
+            &key_physical_attrs 100 100 500 200 0 0 0
+
+            /* Row 3 */
+            &key_physical_attrs 100 100 0 300 0 0 0
+            &key_physical_attrs 100 100 100 300 0 0 0
+            &key_physical_attrs 100 100 200 300 0 0 0
+            &key_physical_attrs 100 100 300 300 0 0 0
+            &key_physical_attrs 100 100 400 300 0 0 0
+            &key_physical_attrs 100 100 500 300 0 0 0
         >;
     };
 
