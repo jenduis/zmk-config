@@ -1,0 +1,2 @@
+config SHIELD_EDIN
+    def_bool $(shields_list_contains,edin)

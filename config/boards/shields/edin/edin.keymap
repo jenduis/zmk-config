@@ -1,0 +1,42 @@
+/*
+ * Edin Keyboard — Keymap
+ *
+ * 3 rows × 5 columns = 15 keys
+ *
+ * Layer 0 (Default): basic alpha/modifier keys.
+ * Note: Studio locking is disabled via CONFIG_ZMK_STUDIO_LOCKING=n,
+ * so no &studio_unlock key is required to connect to ZMK Studio.
+ *
+ * Extra reserved layers are available for ZMK Studio to populate
+ * at runtime without reflashing.
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            display-name = "Base";
+            bindings = <
+                &kp ESC        &kp Q  &kp W  &kp E  &kp R
+                &kp A          &kp S  &kp D  &kp F  &kp G
+                &kp Z          &kp X  &kp C  &kp V  &kp SPACE
+            >;
+        };
+
+        extra1 {
+            status = "reserved";
+        };
+
+        extra2 {
+            status = "reserved";
+        };
+
+        extra3 {
+            status = "reserved";
+        };
+    };
+};
