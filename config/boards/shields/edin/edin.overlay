@@ -83,6 +83,8 @@
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "row2col";
         wakeup-source;
+        debounce-press-ms = <10>;
+        debounce-release-ms = <20>;
 
         row-gpios
             = <&gpio0 5 GPIO_ACTIVE_HIGH>
